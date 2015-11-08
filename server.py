@@ -11,13 +11,13 @@ def fill_survey():
    	session['lang'] = request.form['lang']
    	session['comment'] = request.form['comment']
    	if len(request.form['name']) < 1:
-		flash('Empty')
+		flash(u'Empty', 'error')
 	else:
 		flash('Your name is {}'.format(request.form['name']))
 	if len(request.form['comment']) < 1:
-		flash('Empty')
-	elif len(request.form['comment']) > 120:
-		flash('Comment too long')
+		flash(u'Empty', 'com')
+	if len(request.form['comment']) > 120:
+		flash(u'Comment too long.', 'com')
    	return redirect('/result')
 @app.route('/result')
 def process():

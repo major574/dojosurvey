@@ -8,17 +8,25 @@
     	<div class='resultbox'>
 	 		<h1>Survey Results</h1>
             <h3>Name:</h3>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for message in messages %}
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                {% if errors %}
+                    {%- for message in errors %}
                         <p>{{message}}</p>
-                    {% endfor %}
+                    {% endfor -%}
                 {% endif %}
             {% endwith %}
 	 		<!-- <p><h3>Name:</h3>{{session['name']}}</p> -->
 	 		<p><h3>City:</h3>{{session['city']}}</p>
 	 		<p><h3>Favorite Language:</h3>{{session['lang']}}</p>
-	 		<p><h3>Comment:</h3>{{session['comment']}}</p>
+	 		<!-- <p><h3>Comment:</h3>{{session['comment']}}</p> -->
+            <h3>Comment:</h3>
+            {% with com = get_flashed_messages(category_filter=["com"]) %}
+                {% if com %}
+                    {%- for message in com %}
+                        <p>{{message}}</p>
+                    {% endfor -%}
+                {% endif %}
+            {% endwith %}
  		</div>
     </body>
 </html>
