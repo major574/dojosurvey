@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+ 	<title>Processed Data</title>
+    </head>
+    <body>
+    	<div class='resultbox'>
+	 		<h1>Survey Results</h1>
+            <h3>Name:</h3>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+	 		<!-- <p><h3>Name:</h3>{{session['name']}}</p> -->
+	 		<p><h3>City:</h3>{{session['city']}}</p>
+	 		<p><h3>Favorite Language:</h3>{{session['lang']}}</p>
+	 		<p><h3>Comment:</h3>{{session['comment']}}</p>
+ 		</div>
+    </body>
+</html>
