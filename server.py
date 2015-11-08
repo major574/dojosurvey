@@ -12,8 +12,8 @@ def fill_survey():
    	session['comment'] = request.form['comment']
    	if len(request.form['name']) < 1:
 		flash(u'Empty', 'error')
-	else:
-		flash('Your name is {}'.format(request.form['name']))
+	# else:
+	# 	flash('Your name is {}'.format(request.form['name']))
 	if len(request.form['comment']) < 1:
 		flash(u'Empty', 'com')
 	if len(request.form['comment']) > 120:

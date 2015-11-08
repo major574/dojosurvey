@@ -15,10 +15,9 @@
                     {% endfor -%}
                 {% endif %}
             {% endwith %}
-	 		<!-- <p><h3>Name:</h3>{{session['name']}}</p> -->
+	 		<p>{{session['name']}}</p>
 	 		<p><h3>City:</h3>{{session['city']}}</p>
 	 		<p><h3>Favorite Language:</h3>{{session['lang']}}</p>
-	 		<!-- <p><h3>Comment:</h3>{{session['comment']}}</p> -->
             <h3>Comment:</h3>
             {% with com = get_flashed_messages(category_filter=["com"]) %}
                 {% if com %}
@@ -27,6 +26,7 @@
                     {% endfor -%}
                 {% endif %}
             {% endwith %}
+            <p>{{session['comment']}}</p>
  		</div>
     </body>
 </html>
